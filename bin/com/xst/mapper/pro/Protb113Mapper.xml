@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xst.mapper.pro.Protb113Mapper" >
+  <resultMap id="BaseResultMap" type="com.xst.pro.Protb113" >
+    <id column="PROTB113ID" property="protb113id" jdbcType="VARCHAR" />
+    <result column="SETTB03ID" property="settb03id" jdbcType="VARCHAR" />
+    <result column="SETTB05ID" property="settb05id" jdbcType="VARCHAR" />
+    <result column="PROTB113CA00" property="protb113ca00" jdbcType="VARCHAR" />
+    <result column="PROTB113CC00" property="protb113cc00" jdbcType="TIMESTAMP" />
+    <result column="PROTB113CC01" property="protb113cc01" jdbcType="VARCHAR" />
+    <result column="PROTB113CC02" property="protb113cc02" jdbcType="TIMESTAMP" />
+    <result column="PROTB113CC03" property="protb113cc03" jdbcType="VARCHAR" />
+    <result column="PROTB113CD00" property="protb113cd00" jdbcType="VARCHAR" />
+    <result column="PROTB113CD01" property="protb113cd01" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    PROTB113ID, SETTB03ID, SETTB05ID, PROTB113CA00, PROTB113CC00, PROTB113CC01, PROTB113CC02, 
+    PROTB113CC03, PROTB113CD00, PROTB113CD01
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xst.pro.Protb113Example" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from protb113
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from protb113
+    where PROTB113ID = #{protb113id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from protb113
+    where PROTB113ID = #{protb113id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xst.pro.Protb113Example" >
+    delete from protb113
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xst.pro.Protb113" >
+    insert into protb113 (PROTB113ID, SETTB03ID, SETTB05ID, 
+      PROTB113CA00, PROTB113CC00, PROTB113CC01, 
+      PROTB113CC02, PROTB113CC03, PROTB113CD00, 
+      PROTB113CD01)
+    values (#{protb113id,jdbcType=VARCHAR}, #{settb03id,jdbcType=VARCHAR}, #{settb05id,jdbcType=VARCHAR}, 
+      #{protb113ca00,jdbcType=VARCHAR}, #{protb113cc00,jdbcType=TIMESTAMP}, #{protb113cc01,jdbcType=VARCHAR}, 
+      #{protb113cc02,jdbcType=TIMESTAMP}, #{protb113cc03,jdbcType=VARCHAR}, #{protb113cd00,jdbcType=VARCHAR}, 
+      #{protb113cd01,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xst.pro.Protb113" >
+    insert into protb113
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="protb113id != null" >
+        PROTB113ID,
+      </if>
+      <if test="settb03id != null" >
+        SETTB03ID,
+      </if>
+      <if test="settb05id != null" >
+        SETTB05ID,
+      </if>
+      <if test="protb113ca00 != null" >
+        PROTB113CA00,
+      </if>
+      <if test="protb113cc00 != null" >
+        PROTB113CC00,
+      </if>
+      <if test="protb113cc01 != null" >
+        PROTB113CC01,
+      </if>
+      <if test="protb113cc02 != null" >
+        PROTB113CC02,
+      </if>
+      <if test="protb113cc03 != null" >
+        PROTB113CC03,
+      </if>
+      <if test="protb113cd00 != null" >
+        PROTB113CD00,
+      </if>
+      <if test="protb113cd01 != null" >
+        PROTB113CD01,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="protb113id != null" >
+        #{protb113id,jdbcType=VARCHAR},
+      </if>
+      <if test="settb03id != null" >
+        #{settb03id,jdbcType=VARCHAR},
+      </if>
+      <if test="settb05id != null" >
+        #{settb05id,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113ca00 != null" >
+        #{protb113ca00,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cc00 != null" >
+        #{protb113cc00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb113cc01 != null" >
+        #{protb113cc01,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cc02 != null" >
+        #{protb113cc02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb113cc03 != null" >
+        #{protb113cc03,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cd00 != null" >
+        #{protb113cd00,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cd01 != null" >
+        #{protb113cd01,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xst.pro.Protb113Example" resultType="java.lang.Integer" >
+    select count(*) from protb113
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update protb113
+    <set >
+      <if test="record.protb113id != null" >
+        PROTB113ID = #{record.protb113id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settb03id != null" >
+        SETTB03ID = #{record.settb03id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settb05id != null" >
+        SETTB05ID = #{record.settb05id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb113ca00 != null" >
+        PROTB113CA00 = #{record.protb113ca00,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb113cc00 != null" >
+        PROTB113CC00 = #{record.protb113cc00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.protb113cc01 != null" >
+        PROTB113CC01 = #{record.protb113cc01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb113cc02 != null" >
+        PROTB113CC02 = #{record.protb113cc02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.protb113cc03 != null" >
+        PROTB113CC03 = #{record.protb113cc03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb113cd00 != null" >
+        PROTB113CD00 = #{record.protb113cd00,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb113cd01 != null" >
+        PROTB113CD01 = #{record.protb113cd01,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update protb113
+    set PROTB113ID = #{record.protb113id,jdbcType=VARCHAR},
+      SETTB03ID = #{record.settb03id,jdbcType=VARCHAR},
+      SETTB05ID = #{record.settb05id,jdbcType=VARCHAR},
+      PROTB113CA00 = #{record.protb113ca00,jdbcType=VARCHAR},
+      PROTB113CC00 = #{record.protb113cc00,jdbcType=TIMESTAMP},
+      PROTB113CC01 = #{record.protb113cc01,jdbcType=VARCHAR},
+      PROTB113CC02 = #{record.protb113cc02,jdbcType=TIMESTAMP},
+      PROTB113CC03 = #{record.protb113cc03,jdbcType=VARCHAR},
+      PROTB113CD00 = #{record.protb113cd00,jdbcType=VARCHAR},
+      PROTB113CD01 = #{record.protb113cd01,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xst.pro.Protb113" >
+    update protb113
+    <set >
+      <if test="settb03id != null" >
+        SETTB03ID = #{settb03id,jdbcType=VARCHAR},
+      </if>
+      <if test="settb05id != null" >
+        SETTB05ID = #{settb05id,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113ca00 != null" >
+        PROTB113CA00 = #{protb113ca00,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cc00 != null" >
+        PROTB113CC00 = #{protb113cc00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb113cc01 != null" >
+        PROTB113CC01 = #{protb113cc01,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cc02 != null" >
+        PROTB113CC02 = #{protb113cc02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb113cc03 != null" >
+        PROTB113CC03 = #{protb113cc03,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cd00 != null" >
+        PROTB113CD00 = #{protb113cd00,jdbcType=VARCHAR},
+      </if>
+      <if test="protb113cd01 != null" >
+        PROTB113CD01 = #{protb113cd01,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROTB113ID = #{protb113id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xst.pro.Protb113" >
+    update protb113
+    set SETTB03ID = #{settb03id,jdbcType=VARCHAR},
+      SETTB05ID = #{settb05id,jdbcType=VARCHAR},
+      PROTB113CA00 = #{protb113ca00,jdbcType=VARCHAR},
+      PROTB113CC00 = #{protb113cc00,jdbcType=TIMESTAMP},
+      PROTB113CC01 = #{protb113cc01,jdbcType=VARCHAR},
+      PROTB113CC02 = #{protb113cc02,jdbcType=TIMESTAMP},
+      PROTB113CC03 = #{protb113cc03,jdbcType=VARCHAR},
+      PROTB113CD00 = #{protb113cd00,jdbcType=VARCHAR},
+      PROTB113CD01 = #{protb113cd01,jdbcType=VARCHAR}
+    where PROTB113ID = #{protb113id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xst.mapper.pro.Protb111Mapper" >
+  <resultMap id="BaseResultMap" type="com.xst.pro.Protb111" >
+    <id column="PROTB111ID" property="protb111id" jdbcType="VARCHAR" />
+    <id column="PROTB111CD01" property="protb111cd01" jdbcType="VARCHAR" />
+    <result column="CALTB003ID" property="caltb003id" jdbcType="VARCHAR" />
+    <result column="PROTB108ID" property="protb108id" jdbcType="VARCHAR" />
+    <result column="SETTB09ID" property="settb09id" jdbcType="VARCHAR" />
+    <result column="PROTB111CA00" property="protb111ca00" jdbcType="TIMESTAMP" />
+    <result column="PROTB111CA01" property="protb111ca01" jdbcType="VARCHAR" />
+    <result column="PROTB111CA02" property="protb111ca02" jdbcType="TIMESTAMP" />
+    <result column="PROTB111CA03" property="protb111ca03" jdbcType="TIMESTAMP" />
+    <result column="PROTB111CA04" property="protb111ca04" jdbcType="VARCHAR" />
+    <result column="PROTB111CA05" property="protb111ca05" jdbcType="VARCHAR" />
+    <result column="PROTB111CA06" property="protb111ca06" jdbcType="VARCHAR" />
+    <result column="PROTB111CA07" property="protb111ca07" jdbcType="VARCHAR" />
+    <result column="PROTB111CC00" property="protb111cc00" jdbcType="TIMESTAMP" />
+    <result column="PROTB111CC01" property="protb111cc01" jdbcType="VARCHAR" />
+    <result column="PROTB111CC02" property="protb111cc02" jdbcType="TIMESTAMP" />
+    <result column="PROTB111CC03" property="protb111cc03" jdbcType="VARCHAR" />
+    <result column="PROTB111CD00" property="protb111cd00" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    PROTB111ID, PROTB111CD01, CALTB003ID, PROTB108ID, SETTB09ID, PROTB111CA00, PROTB111CA01, 
+    PROTB111CA02, PROTB111CA03, PROTB111CA04, PROTB111CA05, PROTB111CA06, PROTB111CA07, 
+    PROTB111CC00, PROTB111CC01, PROTB111CC02, PROTB111CC03, PROTB111CD00
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xst.pro.Protb111Example" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from protb111
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.xst.pro.Protb111Key" >
+    select 
+    <include refid="Base_Column_List" />
+    from protb111
+    where PROTB111ID = #{protb111id,jdbcType=VARCHAR}
+      and PROTB111CD01 = #{protb111cd01,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.xst.pro.Protb111Key" >
+    delete from protb111
+    where PROTB111ID = #{protb111id,jdbcType=VARCHAR}
+      and PROTB111CD01 = #{protb111cd01,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xst.pro.Protb111Example" >
+    delete from protb111
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xst.pro.Protb111" >
+    insert into protb111 (PROTB111ID, PROTB111CD01, CALTB003ID, 
+      PROTB108ID, SETTB09ID, PROTB111CA00, 
+      PROTB111CA01, PROTB111CA02, PROTB111CA03, 
+      PROTB111CA04, PROTB111CA05, PROTB111CA06, 
+      PROTB111CA07, PROTB111CC00, PROTB111CC01, 
+      PROTB111CC02, PROTB111CC03, PROTB111CD00
+      )
+    values (#{protb111id,jdbcType=VARCHAR}, #{protb111cd01,jdbcType=VARCHAR}, #{caltb003id,jdbcType=VARCHAR}, 
+      #{protb108id,jdbcType=VARCHAR}, #{settb09id,jdbcType=VARCHAR}, #{protb111ca00,jdbcType=TIMESTAMP}, 
+      #{protb111ca01,jdbcType=VARCHAR}, #{protb111ca02,jdbcType=TIMESTAMP}, #{protb111ca03,jdbcType=TIMESTAMP}, 
+      #{protb111ca04,jdbcType=VARCHAR}, #{protb111ca05,jdbcType=VARCHAR}, #{protb111ca06,jdbcType=VARCHAR}, 
+      #{protb111ca07,jdbcType=VARCHAR}, #{protb111cc00,jdbcType=TIMESTAMP}, #{protb111cc01,jdbcType=VARCHAR}, 
+      #{protb111cc02,jdbcType=TIMESTAMP}, #{protb111cc03,jdbcType=VARCHAR}, #{protb111cd00,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xst.pro.Protb111" >
+    insert into protb111
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="protb111id != null" >
+        PROTB111ID,
+      </if>
+      <if test="protb111cd01 != null" >
+        PROTB111CD01,
+      </if>
+      <if test="caltb003id != null" >
+        CALTB003ID,
+      </if>
+      <if test="protb108id != null" >
+        PROTB108ID,
+      </if>
+      <if test="settb09id != null" >
+        SETTB09ID,
+      </if>
+      <if test="protb111ca00 != null" >
+        PROTB111CA00,
+      </if>
+      <if test="protb111ca01 != null" >
+        PROTB111CA01,
+      </if>
+      <if test="protb111ca02 != null" >
+        PROTB111CA02,
+      </if>
+      <if test="protb111ca03 != null" >
+        PROTB111CA03,
+      </if>
+      <if test="protb111ca04 != null" >
+        PROTB111CA04,
+      </if>
+      <if test="protb111ca05 != null" >
+        PROTB111CA05,
+      </if>
+      <if test="protb111ca06 != null" >
+        PROTB111CA06,
+      </if>
+      <if test="protb111ca07 != null" >
+        PROTB111CA07,
+      </if>
+      <if test="protb111cc00 != null" >
+        PROTB111CC00,
+      </if>
+      <if test="protb111cc01 != null" >
+        PROTB111CC01,
+      </if>
+      <if test="protb111cc02 != null" >
+        PROTB111CC02,
+      </if>
+      <if test="protb111cc03 != null" >
+        PROTB111CC03,
+      </if>
+      <if test="protb111cd00 != null" >
+        PROTB111CD00,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="protb111id != null" >
+        #{protb111id,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111cd01 != null" >
+        #{protb111cd01,jdbcType=VARCHAR},
+      </if>
+      <if test="caltb003id != null" >
+        #{caltb003id,jdbcType=VARCHAR},
+      </if>
+      <if test="protb108id != null" >
+        #{protb108id,jdbcType=VARCHAR},
+      </if>
+      <if test="settb09id != null" >
+        #{settb09id,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca00 != null" >
+        #{protb111ca00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111ca01 != null" >
+        #{protb111ca01,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca02 != null" >
+        #{protb111ca02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111ca03 != null" >
+        #{protb111ca03,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111ca04 != null" >
+        #{protb111ca04,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca05 != null" >
+        #{protb111ca05,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca06 != null" >
+        #{protb111ca06,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca07 != null" >
+        #{protb111ca07,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111cc00 != null" >
+        #{protb111cc00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111cc01 != null" >
+        #{protb111cc01,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111cc02 != null" >
+        #{protb111cc02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111cc03 != null" >
+        #{protb111cc03,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111cd00 != null" >
+        #{protb111cd00,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xst.pro.Protb111Example" resultType="java.lang.Integer" >
+    select count(*) from protb111
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update protb111
+    <set >
+      <if test="record.protb111id != null" >
+        PROTB111ID = #{record.protb111id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111cd01 != null" >
+        PROTB111CD01 = #{record.protb111cd01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caltb003id != null" >
+        CALTB003ID = #{record.caltb003id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb108id != null" >
+        PROTB108ID = #{record.protb108id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settb09id != null" >
+        SETTB09ID = #{record.settb09id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111ca00 != null" >
+        PROTB111CA00 = #{record.protb111ca00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.protb111ca01 != null" >
+        PROTB111CA01 = #{record.protb111ca01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111ca02 != null" >
+        PROTB111CA02 = #{record.protb111ca02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.protb111ca03 != null" >
+        PROTB111CA03 = #{record.protb111ca03,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.protb111ca04 != null" >
+        PROTB111CA04 = #{record.protb111ca04,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111ca05 != null" >
+        PROTB111CA05 = #{record.protb111ca05,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111ca06 != null" >
+        PROTB111CA06 = #{record.protb111ca06,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111ca07 != null" >
+        PROTB111CA07 = #{record.protb111ca07,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111cc00 != null" >
+        PROTB111CC00 = #{record.protb111cc00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.protb111cc01 != null" >
+        PROTB111CC01 = #{record.protb111cc01,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111cc02 != null" >
+        PROTB111CC02 = #{record.protb111cc02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.protb111cc03 != null" >
+        PROTB111CC03 = #{record.protb111cc03,jdbcType=VARCHAR},
+      </if>
+      <if test="record.protb111cd00 != null" >
+        PROTB111CD00 = #{record.protb111cd00,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update protb111
+    set PROTB111ID = #{record.protb111id,jdbcType=VARCHAR},
+      PROTB111CD01 = #{record.protb111cd01,jdbcType=VARCHAR},
+      CALTB003ID = #{record.caltb003id,jdbcType=VARCHAR},
+      PROTB108ID = #{record.protb108id,jdbcType=VARCHAR},
+      SETTB09ID = #{record.settb09id,jdbcType=VARCHAR},
+      PROTB111CA00 = #{record.protb111ca00,jdbcType=TIMESTAMP},
+      PROTB111CA01 = #{record.protb111ca01,jdbcType=VARCHAR},
+      PROTB111CA02 = #{record.protb111ca02,jdbcType=TIMESTAMP},
+      PROTB111CA03 = #{record.protb111ca03,jdbcType=TIMESTAMP},
+      PROTB111CA04 = #{record.protb111ca04,jdbcType=VARCHAR},
+      PROTB111CA05 = #{record.protb111ca05,jdbcType=VARCHAR},
+      PROTB111CA06 = #{record.protb111ca06,jdbcType=VARCHAR},
+      PROTB111CA07 = #{record.protb111ca07,jdbcType=VARCHAR},
+      PROTB111CC00 = #{record.protb111cc00,jdbcType=TIMESTAMP},
+      PROTB111CC01 = #{record.protb111cc01,jdbcType=VARCHAR},
+      PROTB111CC02 = #{record.protb111cc02,jdbcType=TIMESTAMP},
+      PROTB111CC03 = #{record.protb111cc03,jdbcType=VARCHAR},
+      PROTB111CD00 = #{record.protb111cd00,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xst.pro.Protb111" >
+    update protb111
+    <set >
+      <if test="caltb003id != null" >
+        CALTB003ID = #{caltb003id,jdbcType=VARCHAR},
+      </if>
+      <if test="protb108id != null" >
+        PROTB108ID = #{protb108id,jdbcType=VARCHAR},
+      </if>
+      <if test="settb09id != null" >
+        SETTB09ID = #{settb09id,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca00 != null" >
+        PROTB111CA00 = #{protb111ca00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111ca01 != null" >
+        PROTB111CA01 = #{protb111ca01,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca02 != null" >
+        PROTB111CA02 = #{protb111ca02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111ca03 != null" >
+        PROTB111CA03 = #{protb111ca03,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111ca04 != null" >
+        PROTB111CA04 = #{protb111ca04,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca05 != null" >
+        PROTB111CA05 = #{protb111ca05,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca06 != null" >
+        PROTB111CA06 = #{protb111ca06,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111ca07 != null" >
+        PROTB111CA07 = #{protb111ca07,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111cc00 != null" >
+        PROTB111CC00 = #{protb111cc00,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111cc01 != null" >
+        PROTB111CC01 = #{protb111cc01,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111cc02 != null" >
+        PROTB111CC02 = #{protb111cc02,jdbcType=TIMESTAMP},
+      </if>
+      <if test="protb111cc03 != null" >
+        PROTB111CC03 = #{protb111cc03,jdbcType=VARCHAR},
+      </if>
+      <if test="protb111cd00 != null" >
+        PROTB111CD00 = #{protb111cd00,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PROTB111ID = #{protb111id,jdbcType=VARCHAR}
+      and PROTB111CD01 = #{protb111cd01,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xst.pro.Protb111" >
+    update protb111
+    set CALTB003ID = #{caltb003id,jdbcType=VARCHAR},
+      PROTB108ID = #{protb108id,jdbcType=VARCHAR},
+      SETTB09ID = #{settb09id,jdbcType=VARCHAR},
+      PROTB111CA00 = #{protb111ca00,jdbcType=TIMESTAMP},
+      PROTB111CA01 = #{protb111ca01,jdbcType=VARCHAR},
+      PROTB111CA02 = #{protb111ca02,jdbcType=TIMESTAMP},
+      PROTB111CA03 = #{protb111ca03,jdbcType=TIMESTAMP},
+      PROTB111CA04 = #{protb111ca04,jdbcType=VARCHAR},
+      PROTB111CA05 = #{protb111ca05,jdbcType=VARCHAR},
+      PROTB111CA06 = #{protb111ca06,jdbcType=VARCHAR},
+      PROTB111CA07 = #{protb111ca07,jdbcType=VARCHAR},
+      PROTB111CC00 = #{protb111cc00,jdbcType=TIMESTAMP},
+      PROTB111CC01 = #{protb111cc01,jdbcType=VARCHAR},
+      PROTB111CC02 = #{protb111cc02,jdbcType=TIMESTAMP},
+      PROTB111CC03 = #{protb111cc03,jdbcType=VARCHAR},
+      PROTB111CD00 = #{protb111cd00,jdbcType=VARCHAR}
+    where PROTB111ID = #{protb111id,jdbcType=VARCHAR}
+      and PROTB111CD01 = #{protb111cd01,jdbcType=VARCHAR}
+  </update>
+</mapper>
